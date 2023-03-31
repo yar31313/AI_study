@@ -1,0 +1,29 @@
+{
+	"data" : {
+		"DATA_DIR" : "/storage01/users/user/ny_test/CNvsAD/",
+		"INPUT_SHAPE" : [72,180,180,1],
+		"DICOM_SPACING" : [1,1,1],
+		"NUM_CLASSES" : 2
+	},
+	"model" : {
+		"BATCH_SIZE" : 4,
+		"PATCH_SIZE" : [8,8,8],
+		"VIVIT_MODEL" : "STA",
+		"LAYER_NORM_EPS" : 1e-6,
+		"PROJECTION_DIM" : 128,
+		"NUM_HEADS" : 8,
+		"NUM_LAYERS" : 8,
+		"LABEL_SMOOTHING" : 0.1,
+		"STOCHASTIC_DEPTH" : 0.5
+	},
+	"train" : {
+		"EPOCHS" : 1000,
+		"LEARNING_RATE" : 1e-5,
+		"DECAY_RATE" : 0.8,
+		"DECAY_STEP" : 10000
+	},
+	"out" : {
+		"OUT_DIR" : "./test1/",
+		"SAVE_FREQ" : 10
+	}
+}
