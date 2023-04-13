@@ -253,7 +253,7 @@ def run_experiment(model):
         ],
     )
 
-    checkpoint_filepath = "/tmp/checkpoint"
+    checkpoint_filepath = "./ckpt"
     checkpoint_callback = keras.callbacks.ModelCheckpoint(
         checkpoint_filepath,
         monitor="val_accuracy",
