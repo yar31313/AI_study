@@ -1,0 +1,32 @@
+{
+    "data" : {
+		"train_dir" : "./data/ChestMNIST/train/",
+		"test_dir" : "./data/ChestMNIST/test/",
+		"resize" : [32,32,1]
+	},
+	"augmentation" : {
+		"normalization" : true,
+		"resizing" : true,
+		"flip" : "horizontal",
+		"rotate" : 0.02,
+		"zoom" : [0.2, 0.2]
+	},
+	"model" : {
+        "input_shape" : [32,32,1],
+        "image_size" : 72, 
+		"patch_size" : 6,
+		"projection_dim" : 64,
+		"num_heads" : 4,
+		"num_layers" : 8,
+        "mlp_head_units" : [2048, 1024],
+        "num_classes" : 2
+	},
+	"train" : {
+		"batch_size" : 256,
+        "epochs" : 100,
+		"learning_rate" : 0.001,
+		"decay_rate" : 0.0001,
+		"decay_step" : 10000,
+		"ckpt_name" : "./ckpt/ViT_ChestMNIST_0413"
+	}
+}
