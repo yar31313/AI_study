@@ -87,7 +87,7 @@ could also be used instead to aggregate the outputs of the Transformer block,
 especially when the number of patches and the projection dimensions are large.
 """
 
-def ViT_model():
+def model_main():
     inputs = layers.Input(shape=config['model']['input_shape'])
     # Augment data.
     """

@@ -2,6 +2,7 @@
     "data" : {
 		"train_dir" : "./data/ChestMNIST/train/",
 		"test_dir" : "./data/ChestMNIST/test/",
+		"data_loader" : "./dataloader/ChestMNIST.py",
 		"resize" : [32,32,1]
 	},
 	"augmentation" : {
@@ -12,6 +13,7 @@
 		"zoom" : [0.2, 0.2]
 	},
 	"model" : {
+		"model_loader" : "./model/ViT.py",
         "input_shape" : [32,32,1],
         "image_size" : 72, 
 		"patch_size" : 6,

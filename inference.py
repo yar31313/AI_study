@@ -5,15 +5,14 @@ from tensorflow.keras import layers
 import tensorflow_addons as tfa
 import os
 
-from dataloader.ChestMNIST import dataloader
 from utils.preprocess import preprocess
-
-from model.ViT import ViT_model
+from utils.util import *
 
 import json
 with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
 
-x_test, y_test = dataloader(config['data']['test_dir'])
+loadermodule = module_loader('dataloader', config['data']['data_loader'])
+x_test, y_test = loadermodule.dataloader(config['data']['test_dir'])
 x_test, y_test = preprocess(x_test, y_test)
 
 def run_eval(model):
@@ -39,5 +38,6 @@ def run_eval(model):
 
     return 
 
-vit_classifier = ViT_model()
-run_eval(vit_classifier)
+loadermodule = module_loader('model_main', config['model']['model_loader'])
+model = loadermodule.model_main()
+run_eval(model)
