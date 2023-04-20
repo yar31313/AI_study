@@ -4,10 +4,10 @@ https://drive.google.com/drive/folders/1Ay_CkJ4RYqRSDvQ_gBBxl1gHhw1R-FxV?usp=sha
 
 ### Recently Done :
 - (230419) MODEL_train.py, MODEL_inference.py --> train.py, inference.py로 통일 (config 파일에서 model도 결정)
+- (230420) 3D public data 추가 (SPIE-AAPM from TCIA) + dataloader 추가
 
 ### Processing... :
 - ViViT code 추가
-- 3D public data 추가 (TCIA)
 
 ### TODOs :
 - add K-fold cross validation in train.py
