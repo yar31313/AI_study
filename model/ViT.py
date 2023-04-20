@@ -2,9 +2,6 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-import json
-with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
-
 """
 ## Implement multilayer perceptron (MLP)
 """
@@ -87,7 +84,7 @@ could also be used instead to aggregate the outputs of the Transformer block,
 especially when the number of patches and the projection dimensions are large.
 """
 
-def model_main():
+def model_main(config):
     inputs = layers.Input(shape=config['model']['input_shape'])
     # Augment data.
     """

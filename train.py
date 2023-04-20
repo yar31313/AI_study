@@ -13,7 +13,7 @@ with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
 
 loadermodule = module_loader('dataloader', config['data']['data_loader'])
 x_train, y_train = loadermodule.dataloader(config['data']['train_dir'])
-x_train, y_train = preprocess(x_train, y_train)
+x_train, y_train = preprocess(x_train, y_train, config)
 
 def run_experiment(model):
     optimizer = tfa.optimizers.AdamW(

@@ -13,7 +13,7 @@ with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
 
 loadermodule = module_loader('dataloader', config['data']['data_loader'])
 x_test, y_test = loadermodule.dataloader(config['data']['test_dir'])
-x_test, y_test = preprocess(x_test, y_test)
+x_test, y_test = preprocess(x_test, y_test, config)
 
 def run_eval(model):
 
@@ -39,5 +39,5 @@ def run_eval(model):
     return 
 
 loadermodule = module_loader('model_main', config['model']['model_loader'])
-model = loadermodule.model_main()
+model = loadermodule.model_main(config)
 run_eval(model)
