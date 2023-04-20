@@ -3,10 +3,6 @@ from skimage import transform
 
 import numpy as np
 
-
-# import json
-# with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
-
 def preprocess(x, y, config):
     if 'resize' in config['data']:
         if len(x[0].shape)==2 or x[0].shape[-1] == 1:

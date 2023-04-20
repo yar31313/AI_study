@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
+from keras import layers
 import tensorflow_addons as tfa
 import os
 
@@ -12,7 +12,7 @@ import json
 with open('./config/ViT_20230413.json', 'r') as f: config = json.load(f)
 
 loadermodule = module_loader('dataloader', config['data']['data_loader'])
-x_train, y_train = loadermodule.dataloader(config['data']['train_dir'])
+x_train, y_train = loadermodule.dataloader(config['data']['train_dir'], config)
 x_train, y_train = preprocess(x_train, y_train, config)
 
 def run_experiment(model):
@@ -46,13 +46,8 @@ def run_experiment(model):
         callbacks=[checkpoint_callback]
     )
 
-    # model.load_weights(checkpoint_filepath)
-    # _, accuracy, top_5_accuracy = model.evaluate(x_test, y_test)
-    # print(f"Test accuracy: {round(accuracy * 100, 2)}%")
-    # print(f"Test top 5 accuracy: {round(top_5_accuracy * 100, 2)}%")
-
     return history
 
 loadermodule = module_loader('model_main', config['model']['model_loader'])
-model = loadermodule.model_main()
+model = loadermodule.model_main(config)
 history = run_experiment(model)

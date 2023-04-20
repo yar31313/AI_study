@@ -4,7 +4,7 @@ from time import time
 import numpy as np
 
 
-def dataloader(target_path):
+def dataloader(target_path, config):
 
     x = []
     y = []
